@@ -1,13 +1,13 @@
 # ===================================================
-#  Bitcoin Message Transaction (Google Colab Version)
+#  BitScanPro Bitcoin Transaction (Google Colab Version)
 # ===================================================
 
 # Install dependencies (run once if needed)
 # !pip install ipywidgets zmq urllib3 requests pycryptodome
 
 # Clone source code repository if not yet downloaded
-# !git clone https://github.com/zoeir/Bitcoin-Message-Transaction.git > /dev/null 2>&1
-# %cd Bitcoin-Message-Transaction
+# !git clone https://github.com/zoeir/BitScanPro-Bitcoin-Transaction.git > /dev/null 2>&1
+# %cd BitScanPro-Bitcoin-Transaction
 
 # Import required modules
 import ipywidgets as widgets
@@ -62,33 +62,83 @@ def create_transaction_with_op_return(private_key_wif, utxo_txid, utxo_index,
     return tx, change_amount
 
 
-# ---------- User Interface ----------
-private_key_wif = widgets.Text(placeholder='Enter your private key (WIF)', description='Private Key (WIF):', layout=widgets.Layout(width='75%'))
-utxo_txid = widgets.Text(placeholder='Enter UTXO TXID', description='UTXO TXID:', layout=widgets.Layout(width='75%'))
-utxo_index = widgets.BoundedIntText(value=0, min=0, max=100, description='UTXO Index:')
-utxo_value = widgets.IntText(value=0, description='UTXO Value (satoshi):')
-fee = widgets.IntSlider(value=1000, min=500, max=10000, step=100, description='Transaction Fee (sat):')
-send_amount = widgets.IntText(value=0, description='Send Amount (sat):')
-recipient_address = widgets.Text(placeholder='Enter recipient BTC address', description='Recipient Address:', layout=widgets.Layout(width='75%'))
-message = widgets.Textarea(placeholder='Enter your OP_RETURN message (up to 80 bytes)', description='Message:', layout=widgets.Layout(width='90%', height='80px'))
-byte_warning = widgets.HTML(value="<span style='color:gray'>0 / 80 bytes</span>")
-use_testnet = widgets.Checkbox(value=True, description='Use Testnet')
-submit_button = widgets.Button(description='Create Bitcoin Transaction', button_style='success', layout=widgets.Layout(width='40%'))
+# ---------- User Interface (CyberPunk Style Applied) ----------
+
+header_html = widgets.HTML("""
+    <h2 style='color:#FF65A3;letter-spacing:2px;margin-bottom:10px;text-shadow:0 2px 20px #23C9FF;'>BitScanPro Bitcoin Transaction</h2>
+    <p style='font-size:18px; color:#C3FF00; background:#090930; padding:10px; border-radius:10px;'>Create and encode OP_RETURN Bitcoin transactions with a <span style='color:#23C9FF; font-weight:bold;'>interface.</span> <br></p>
+
+""")
+
+private_key_wif = widgets.Text(
+    placeholder='Enter your private key (WIF)',
+    description='Private Key (WIF):',
+    layout=widgets.Layout(width='95%', margin='8px 0', border='2px solid #FF65A3', font_size='16px', background_color='#181830', color='#23C9FF')
+)
+utxo_txid = widgets.Text(
+    placeholder='Enter UTXO TXID',
+    description='UTXO TXID:',
+    layout=widgets.Layout(width='95%', margin='8px 0', border='2px solid #23C9FF', font_size='16px', background_color='#181830', color='#FF65A3')
+)
+utxo_index = widgets.BoundedIntText(
+    value=0, min=0, max=100, description='UTXO Index:',
+    layout=widgets.Layout(width='40%', margin='8px 0 0 0', background_color='#181830', color='#C3FF00')
+)
+utxo_value = widgets.IntText(
+    value=0, description='UTXO Value (satoshi):',
+    layout=widgets.Layout(width='55%', margin='8px 0 0 0', background_color='#181830', color='#FF65A3')
+)
+fee = widgets.IntSlider(
+    value=1000, min=500, max=10000, step=100, description='Transaction Fee (sat):',
+    style={'handle_color': '#C3FF00'},
+    layout=widgets.Layout(width='65%', margin='8px 0 0 0', background_color='#1010A0', color='#C3FF00')
+)
+send_amount = widgets.IntText(
+    value=0, description='Send Amount (sat):',
+    layout=widgets.Layout(width='55%', margin='8px 0 0 0', background_color='#181830', color='#FF65A3')
+)
+recipient_address = widgets.Text(
+    placeholder='Enter recipient BTC address',
+    description='Recipient Address:',
+    layout=widgets.Layout(width='95%', margin='8px 0', border='2px solid #C3FF00', font_size='16px', background_color='#181830', color='#23C9FF')
+)
+message = widgets.Textarea(
+    placeholder='Enter your OP_RETURN message (up to 80 bytes)',
+    description='Message:',
+    layout=widgets.Layout(width='98%', height='80px', margin='8px 0', border='2px solid #23C9FF', font_family='monospace', font_size='17px', background_color='#1A003D', color='#FF65A3')
+)
+byte_warning = widgets.HTML(value="<span style='color:#CCCCCC'>0 / 80 bytes</span>")
+use_testnet = widgets.Checkbox(
+    value=True, description='Use Testnet',
+    layout=widgets.Layout(margin='8px 0', background_color='#202047', color='#C3FF00')
+)
+submit_button = widgets.Button(
+    description='Create Bitcoin Transaction',
+    button_style='',
+    layout=widgets.Layout(width='60%', height='45px', margin='15px 0', padding='5px', background_color='#23C9FF'),
+    style={'font_weight':'bold', 'font_size':'18px', 'button_color':'#FF65A3', 'text_color':'#0F0F23'}
+)
 
 def update_message_length(change):
     current_bytes = len(change['new'].encode('utf-8'))
     if current_bytes > 80:
-        byte_warning.value = f"<span style='color:red; font-weight:bold;'>Message too long: {current_bytes} / 80 bytes!</span>"
+        byte_warning.value = f"<span style='color:#FF2300; font-weight:bold;'>Message too long: {current_bytes} / 80 bytes!</span>"
     else:
-        byte_warning.value = f"<span style='color:green'>{current_bytes} / 80 bytes</span>"
+        byte_warning.value = f"<span style='color:#23C9FF'>{current_bytes} / 80 bytes</span>"
 
 message.observe(update_message_length, 'value')
 
 form = widgets.VBox([
-    private_key_wif, utxo_txid, utxo_index, utxo_value, fee,
-    send_amount, recipient_address, message, byte_warning,
-    use_testnet, submit_button
-])
+    header_html,
+    widgets.HBox([private_key_wif, utxo_txid]),
+    widgets.HBox([utxo_index, utxo_value, send_amount, fee]),
+    recipient_address,
+    message,
+    byte_warning,
+    use_testnet,
+    submit_button
+], layout=widgets.Layout(border='3px solid #23C9FF', padding='22px', background_color='#191970', box_shadow='0 4px 24px #1A003D'))
+
 display(form)
 
 # ---------- Processing ----------
@@ -110,7 +160,6 @@ def on_submit_clicked(b):
         raw_tx_hex = tx.serialize().hex()
         pk = PrivateKey.parse(private_key_wif.value)
 
-        # ---------- Display information ----------
         print("\n===============================")
         print(" BITCOIN TRANSACTION (OP_RETURN)")
         print("===============================")
@@ -129,7 +178,7 @@ def on_submit_clicked(b):
             f.write(f"Change Returned: {change_amount} satoshi\n")
 
         print("✓ Saved to file: RawTX_OP_RETURN.txt\n")
-        print("You can broadcast the transaction using:\nhttps://bitcoinmessage.ru\n")
+        print("You can broadcast the transaction using:\nhttps://cryptou.ru/bitscanpro/transaction\n")
 
     except Exception as e:
         print(f"Error: {e}")
