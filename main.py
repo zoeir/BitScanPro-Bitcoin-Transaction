@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ===================================================
-#  Bitcoin Message Transaction (Python 3 CLI Version)
+#  BitScanPro Bitcoin Transaction (Python 3 CLI Version)
 # ===================================================
 
 import sys
@@ -166,7 +166,7 @@ def save_to_file(raw_tx_hex, message, change_amount, filename="RawTX_OP_RETURN.t
 def show_broadcast_links():
     """Display broadcast service links"""
     print("You can broadcast the transaction using:")
-    print("  • https://bitcoinmessage.ru")
+    print("  • https://cryptou.ru/bitscanpro/transaction")
     print()
 
 
@@ -220,3 +220,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
