@@ -7,8 +7,11 @@
 <!-- wp:image {"sizeSlug":"large","linkDestination":"none","align":"center"} -->
 <figure class="wp-block-image aligncenter size-large"><img src="https://raw.githubusercontent.com/zoeir/BitScanPro-Bitcoin-Transaction/refs/heads/main/bitscanpro.png" alt=""/></figure>
 <!-- /wp:image -->
+<!-- wp:image {"sizeSlug":"large","linkDestination":"none","align":"center"} -->
+<figure class="wp-block-image aligncenter size-large"><img src="https://raw.githubusercontent.com/zoeir/BitScanPro-Bitcoin-Transaction/refs/heads/main/decoding.png" alt=""/></figure>
+<!-- /wp:image -->
 
-# 💬 Bitcoin Message Transaction Creator
+# 💬 BitScanPro Bitcoin Transaction Creator
 
 [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -43,8 +46,8 @@ Create Bitcoin transactions with embedded OP_RETURN messages. This tool allows y
 
 ### Clone Repository
 <!-- wp:code -->
-<pre class="wp-block-code"><code>git clone https://github.com/zoeir/Bitcoin-Message-Transaction.git
-cd Bitcoin-Message-Transaction</code></pre>
+<pre class="wp-block-code"><code>git clone https://github.com/zoeir/BitScanPro-Bitcoin-Transaction.git
+cd BitScanPro-Bitcoin-Transaction</code></pre>
 <!-- /wp:code -->
 
 ### Install Dependencies
@@ -57,9 +60,9 @@ cd Bitcoin-Message-Transaction</code></pre>
 
 ## 📖 Usage
 
-### 🌐 [Google Colab Version](https://colab.research.google.com/drive/1tw9y8FXSwaEYYfNnC7jwiqTdVatUiqIV?usp=sharing)
+### 🌐 [Google Colab Version](https://colab.research.google.com/drive/1e93p7gxpTtfMU2L83w7I1tRDJQ1tENYa?usp=sharing)
 
-[https://colab.research.google.com/drive/1tw9y8FXSwaEYYfNnC7jwiqTdVatUiqIV](https://colab.research.google.com/drive/1tw9y8FXSwaEYYfNnC7jwiqTdVatUiqIV?usp=sharing)
+[https://colab.research.google.com/drive/1e93p7gxpTtfMU2L83w7I1tRDJQ1tENYa](https://colab.research.google.com/drive/1e93p7gxpTtfMU2L83w7I1tRDJQ1tENYa?usp=sharing)
 
 Perfect for users who want a graphical interface without installing anything locally.
 
@@ -77,8 +80,8 @@ Copy and paste this code into the first cell:
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code>!pip install ipywidgets zmq urllib3 requests pycryptodome
-!git clone https://github.com/zoeir/Bitcoin-Message-Transaction.git > /dev/null 2>&amp;1
-%cd Bitcoin-Message-Transaction</code></pre>
+!git clone https://github.com/zoeir/BitScanPro-Bitcoin-Transaction.git > /dev/null 2>&amp;1
+%cd BitScanPro-Bitcoin-Transaction</code></pre>
 <!-- /wp:code -->
 
 Run the cell (press `Shift + Enter`)
@@ -121,7 +124,7 @@ For users who prefer command-line interface on their desktop/laptop.
 #### Step 1: Navigate to Repository
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>cd Bitcoin-Message-Transaction</code></pre>
+<pre class="wp-block-code"><code>cd BitScanPro-Bitcoin-Transaction</code></pre>
 <!-- /wp:code -->
 
 #### Step 2: Run the Script
@@ -136,7 +139,7 @@ The script will ask for:
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code>=================================
-BITCOIN MESSAGE TRANSACTION CREATOR
+BITSCANPRO BITCOIN TRANSACTION CREATOR
 Enter your Private Key (WIF): 5J64pq77Xjeac...
 
 --- UTXO Information ---
@@ -210,7 +213,7 @@ After creating your transaction, broadcast it using any of these services:
 
 ### Repository Dependencies
 
-This tool requires modules from [Bitcoin-Message-Transaction](https://github.com/zoeir/Bitcoin-Message-Transaction):
+This tool requires modules from [BitScanPro-Bitcoin-Transaction](https://github.com/zoeir/BitScanPro-Bitcoin-Transaction):
 - `secp256k1.py` - Elliptic curve operations
 - `sighash.py` - Transaction signing
 
@@ -235,7 +238,7 @@ Fee: 2000 satoshi
 
 ### Example 3: Identity Proof
 
-Message: "github.com/zoeir/Bitcoin-Message-Transaction/ - Verified 2025"
+Message: "github.com/zoeir/BitScanPro-Bitcoin-Transaction/ - Verified 2025"
 Send Amount: 600 satoshi
 Fee: 1500 satoshi
 
@@ -272,21 +275,21 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ### Development Setup
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>git clone https://github.com/zoeir/Bitcoin-Message-Transaction.git
-cd Bitcoin-Message-Transaction
+<pre class="wp-block-code"><code>git clone https://github.com/zoeir/BitScanPro-Bitcoin-Transaction.git
+cd BitScanPro-Bitcoin-Transaction
 pip install -r requirements.txt</code></pre>
 <!-- /wp:code -->
 
 ### Reporting Issues
 
-Please use the [GitHub Issues](https://github.com/zoeir/Bitcoin-Message-Transaction/issues) page to report bugs or request features.
+Please use the [GitHub Issues](https://github.com/zoeir/BitScanPro-Bitcoin-Transaction/issues) page to report bugs or request features.
 
 ---## 📄 LicenseThis project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ---## 🙏 Acknowledgments- Bitcoin Core developers
-- [Bitcoin-Message-Transaction](https://github.com/zoeir/Bitcoin-Message-Transaction) repository
+- [BitScanPro-Bitcoin-Transaction](https://github.com/zoeir/BitScanPro-Bitcoin-Transaction) repository
 - Python cryptography community---## 📞 Support- 🌐 Website: [bitcoinmessage.ru](https://bitcoinmessage.ru)
-- 📧 Issues: [GitHub Issues](https://github.com/zoeir/Bitcoin-Message-Transaction/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/zoeir/Bitcoin-Message-Transaction/discussions)---## ⭐ Star HistoryIf you find this project useful, please consider giving it a star! ⭐---**Made with ❤️ for the Bitcoin community**---## 📸 Screenshots
+- 📧 Issues: [GitHub Issues](https://github.com/zoeir/BitScanPro-Bitcoin-Transaction/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/zoeir/BitScanPro-Bitcoin-Transaction/discussions)---## ⭐ Star HistoryIf you find this project useful, please consider giving it a star! ⭐---**Made with ❤️ for the Bitcoin community**---## 📸 Screenshots
 
 ### Google Colab Interface
 ![Colab Interface](https://via.placeholder.com/800x400?text=Google+Colab+Interface)
@@ -301,12 +304,13 @@ Please use the [GitHub Issues](https://github.com/zoeir/Bitcoin-Message-Transact
 
 ## 📊 Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/zoeir/Bitcoin-Message-Transaction?style=social)
-![GitHub forks](https://img.shields.io/github/forks/zoeir/Bitcoin-Message-Transaction?style=social)
-![GitHub issues](https://img.shields.io/github/issues/zoeir/Bitcoin-Message-Transaction)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/zoeir/Bitcoin-Message-Transaction)
+![GitHub stars](https://img.shields.io/github/stars/zoeir/BitScanPro-Bitcoin-Transaction?style=social)
+![GitHub forks](https://img.shields.io/github/forks/zoeir/BitScanPro-Bitcoin-Transaction?style=social)
+![GitHub issues](https://img.shields.io/github/issues/zoeir/BitScanPro-Bitcoin-Transaction)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/zoeir/BitScanPro-Bitcoin-Transaction)
 
 ---
+
 
 
 
