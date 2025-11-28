@@ -56,7 +56,20 @@ cd BitScanPro-Bitcoin-Transaction</code></pre>
 <pre class="wp-block-code"><code>pip install ipywidgets zmq urllib3 requests pycryptodome</code></pre>
 <!-- /wp:code -->
 
+
 ---
+
+<h1>YouTube video tutorial for using BitScanPro</h1>
+
+[![Watch the video](https://img.youtube.com/vi/2_d8-8-J8IQ/maxresdefault.jpg)](https://youtu.be/2_d8-8-J8IQ)
+
+<p align="center">
+  <a href="https://youtu.be/2_d8-8-J8IQ" target="_blank">Watch video on YouTube: https://youtu.be/2_d8-8-J8IQ </a>
+</p>
+
+---
+
+
 
 ## 📖 Usage
 
@@ -310,6 +323,7 @@ Please use the [GitHub Issues](https://github.com/zoeir/BitScanPro-Bitcoin-Trans
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/zoeir/BitScanPro-Bitcoin-Transaction)
 
 ---
+
 
 
 
